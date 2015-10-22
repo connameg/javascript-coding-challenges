@@ -7,37 +7,26 @@ between two even numbers. Do not include zero as an even or odd number.
 */
 
 function DashInsertII(num) { 
-
-  // code goes here  
-  var num2 = num.toString();                        //change argument to string for length property
-  var newNum = "";                                  //holds new value
-  for (var i = 0; i < num2.length; i++) {           //loop through each item in string
-      if (+num2[i] === 0) {                         //if the number is 0,
-          newNum += num2[i];                        //add to newNum
-        }
-      else if (+num2[i] % 2 !== 0 && +num2[i + 1] % 2 !== 0) {  //if item at i and i+1 are both odd
-          if (+num2[i + 1] !== 0) {                             //as long as i+1 is not 0,
-          newNum += num2[i] + "-";                              //add the number and a "-"
-          } else {
-            newNum += num2[i];
-          }
-        }
-      else if (+num2[i] % 2 === 0 && +num2[i+1] % 2=== 0){      //if item at i and i+1 are both even
-          if (num2[i + 1] != 0) {                               //as long as i+1 is not 0,
-            newNum += num2[i] + "*";                            //add the number and a "*"
-          } else {
-            newNum += num2[i];
-          }
-        }
-      else {                                                    //for anything else, add to newNum
-        newNum += num2[i];
-      }
+  
+var num = num.toString();                           //convert number to string
+var inserted = "";                                  //will hold the modified string
+for (var i = 0; i < num.length; i++) {              //loop through string
+  if (+num[i] % 2 !== 0) {                          //if num at [i] is odd,
+    if (+num[i+1] % 2 !== 0 && +num[i+1]) {         //AND if i+1 is odd and exists
+      inserted += num[i] + "-";                     //add the dash after num[i]
+    } else {                                        //if the 2nd number isn't odd or doesn't exist
+      inserted += num[i];
+    }
+  } else if (+num[i] === 0) {                       //if number at [i] is 0
+    inserted += num[i];
+  } else if (+num[i] % 2 === 0 && +num[i] !== 0) {  //if num[i] is even (and not 0),
+    if (+num[i+1] %2 === 0 && +num[i+1] !== 0) {    //AND if num[i+1] is even (and not 0)
+      inserted += num[i] + "*";                     //add asterisk after num[i]
+    } else {
+      inserted += num[i];
+    }
   }
-  if (newNum[newNum.length-1] === "-") {                        //if the last character is a dash,
-    return newNum.slice(0, -1);                                 //remove it and return the string
-  } else {
-    return newNum;                                              //otherwise just return the string
-  }       
-} 
-
-DashInsertII(4546793);                                         //call the function with a number
+}
+return inserted;    
+}
+DashInsertII(4546793);
