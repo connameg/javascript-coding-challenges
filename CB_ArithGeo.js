@@ -16,10 +16,9 @@ function ArithGeo(arr) {
 //test for arithmetic sequence
 var diff = arr[1] - arr[0];     //subtract to determine difference between nums
 var arithmetic;                 //stores result from looping (true/false)
-var i;                          //array index counter
 //loop through each item in arr to check
 //if arr[i] & arr[i+1] are separated by same amount
-for (i = 0; i < arr.length-1; i++) {
+for (var i = 0; i < arr.length-1; i++) {
   if (diff + arr[i] === arr[i+1]) {     
     arithmetic = true;                  //if true for each index pair, it's arithmetic
   } else {                              //if any pair fails to meet the condition,
@@ -30,10 +29,9 @@ for (i = 0; i < arr.length-1; i++) {
 //test for geometric sequence
 var div = arr[1]/arr[0];    //divide to get quotient that should separate each number
 var geometric;              //whether or not sequence is geometric
-var j;                      //another index counter
 //loop through each item in arr to
 //check if each number can be multiplied by a constant amount to reach the next number
-for (j = 0; j < arr.length-1; j++) {
+for (var j = 0; j < arr.length-1; j++) {
   if (div * arr[j] === arr[j+1]) {
     geometric = true;                 //if true for each index pair, it's geometric
   } else {                            //if any pair fails the condition,

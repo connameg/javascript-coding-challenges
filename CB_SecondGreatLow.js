@@ -25,13 +25,13 @@ if (arr.length === 2) {                    //if there are only 2 elements in the
 } else {                                   //if there are more than 2 elements:
   for (var i = 0; i < arr.length; i++){    //start at 1st index to search for 2nd lowest
     if (arr[i] < arr[i+1]) {               //if value at index i is less than the next,
-    secLow = arr[i+1];                     //then it's the second lowest
+    secLow = arr[i+1];                     //then [i+1] is the second lowest
     break;                                 //end loop since secLow has been found
     }	
   }
   for (var j = arr.length-1; j > 0; j--){  //start at last index to search for 2nd greatest
     if (arr[j] > arr[j-1]) {               //if value at j is greater than the element before it,
-    secHigh = arr[j-1];                    //it's the second greatest
+    secHigh = arr[j-1];                    //[j-1] is the second greatest
     break;                                 //end loop
     }
   }

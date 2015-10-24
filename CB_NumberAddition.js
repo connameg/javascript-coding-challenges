@@ -6,6 +6,27 @@ Write a function that takes a string containing numbers and other characters, an
 return the sum of all the numbers in the string.
 */
 
+
+
+//-----Callback Version----//
+function NumberAddition(str) { 
+//search for all the digits in str (returns an array)
+var nums = str.match(/(\d)+/g);  
+
+if (!nums) {return 0;}  //stop if there are no numbers
+else {
+  //convert array elements to numbers using .map()
+  //then add all elements together using .reduce()
+  return nums.map(function(element, index, array){
+      return +element;
+  }).reduce(function(previous, current, index, array){
+      return previous + current;
+  });
+}
+}
+NumberAddition("55Hello5");    
+
+//-----Eval Version----//
 function NumberAddition(str) { 
   var nums = str.match(/(\d)+/g);    //search for all digits in str (returns array)
   if (!(nums)) {                     //if nums returns falsy value (no numbers in str)
@@ -16,12 +37,9 @@ function NumberAddition(str) {
   return sum; 
   }    
 }
-   
 NumberAddition("55Hello5");      
 
-
 //-----Loop Version-----//
-
 //this function does the same thing using while loop
 function NumberAddition(str) {
   var nums = str.match(/(\d)+/g);   //search for all digits in str (returns array)
@@ -35,5 +53,4 @@ function NumberAddition(str) {
   return +nums;                     //return the sum (use "+" so it returns a number)
  }
 }
-   
-NumberAddition("55Hello5");      
+NumberAddition("55Hello5");   
